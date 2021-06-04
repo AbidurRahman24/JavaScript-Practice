@@ -10,5 +10,15 @@ var total = price ** price2; //means 10*10
 console.log(total);
 
 
-{/* <	Less than */}
+// <	Less than 
 // <=	Less than or equal
+// >	Greater than
+// >=	Greater than or equal
+// ==	Equal
+// ===	Strict equal
+// !=	Unequal
+// !==	Strict unequal
+// &&	Logical AND
+// ||	Logical OR
+// ? :	Condition
+
