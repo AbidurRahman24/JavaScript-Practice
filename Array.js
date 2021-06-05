@@ -8,3 +8,6 @@ console.log(arr);
 var removeFromFirst = arr.shift()
 
 console.log(removeFromFirst);
+
+var sliceElement = arr.slice(1, 5)
+console.log(sliceElement);
