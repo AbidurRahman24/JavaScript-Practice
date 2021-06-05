@@ -20,4 +20,5 @@ if (job === true && Merry > 200000) {
 } else {
     console.log("please don't come with me");
 }
-
+var date = new Date()
+console.log(date);
