@@ -7,12 +7,15 @@ fetch('https://randomuser.me/api/')
         console.log(data.results[0]);
         const {name, phone, location, picture} = data.results[0]
         const {medium} = picture
-        const {country} = location
-        const {first, last,} = name
-        document.getElementById('name').innerText =   `My name Is ${first} ${last}.
+        const {country, postcode} = location
+        const {first, last} = name
+        document.getElementById('name').innerText =   
+        `
+        My name is: ${first} ${last}.
         Phone: ${phone}
-        Address: ${country}
+        Address: ${country} postcode: ${postcode}
         picture: ${medium}
+
         `
         
   });
