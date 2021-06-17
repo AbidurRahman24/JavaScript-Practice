@@ -1,31 +1,44 @@
 fetch("https://restcountries.eu/rest/v2/all")
   .then((res) => res.json())
   .then((data) => loadData(data));
-
+  // dataLoad
 const loadData = countries => {
   const div = document.getElementById("countries");
   // for (let i = 0; i < countries.length; i++) {
   //   const country = countries[i];
     // console.log(country.capital);
-    const countryDiv = document.createElement("div");
+    countries.forEach(country => {
+      const countryDiv = document.createElement("div");
     countryDiv.className = 'country'
     countryDiv.innerHTML = `
     <h1>${country.name}</h1>
     <p>${country.capital}</p>
-    <button onclick="countryDetails('${country}')">details</button>
+    <button onclick='displayContry("${country.name}")'>details</button>
     `
     div.appendChild(countryDiv);
+    });
+    
   }
-};
-
-const countryDetails = (name) =>{
-  const url = `https://restcountries.eu/rest/v2/name/${name}`
+const displayContry = name =>{
+  const url = `https://restcountries.eu/rest/v2/name/${name} `
   fetch(url)
   .then(res => res.json())
-  .then(data => console.log(data))
-
+  .then(data => countryDetails(data[0]))
 }
 
+
+// country details
+const countryDetails = country =>{
+  console.log(country);
+  const countryDetail = document.getElementById('countryDetail');
+  const {name, capital, population,flag} = country
+  countryDetail.innerHTML = `
+  <img src='${flag}'></img>
+  <h1>${name}</h1>
+  <p>${capital}</p>
+  <p>${population}</p>
+  `
+}
 
 
 
